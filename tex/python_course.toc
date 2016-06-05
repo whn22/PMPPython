@@ -1,0 +1,18 @@
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}
+\contentsline {subsubsection}{\numberline {1.0.1}Strengths:}{2}{subsubsection.1.0.1}
+\contentsline {subsubsection}{\numberline {1.0.2}Weaknesses:}{2}{subsubsection.1.0.2}
+\contentsline {subsection}{\numberline {1.1}General Things to Note:}{2}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}The Golden Rule!}{3}{subsection.1.2}
+\contentsline {section}{\numberline {2}Syntax and Language}{3}{section.2}
+\contentsline {subsection}{\numberline {2.1}General Syntax}{3}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Basic Language Referance}{3}{subsection.2.2}
+\contentsline {subsubsection}{\numberline {2.2.1}Comments}{3}{subsubsection.2.2.1}
+\contentsline {subsection}{\numberline {2.3}Print Statement}{4}{subsection.2.3}
+\contentsline {subsubsection}{\numberline {2.3.1}Loops}{4}{subsubsection.2.3.1}
+\contentsline {subsubsection}{\numberline {2.3.2}Functions}{4}{subsubsection.2.3.2}
+\contentsline {subsubsection}{\numberline {2.3.3}Import statement}{4}{subsubsection.2.3.3}
+\contentsline {subsubsection}{\numberline {2.3.4}Basic Data Types}{5}{subsubsection.2.3.4}
+\contentsline {subsubsection}{\numberline {2.3.5}File I/O}{5}{subsubsection.2.3.5}
+\contentsline {section}{\numberline {3}Third Party Libraries}{6}{section.3}
+\contentsline {subsubsection}{\numberline {3.0.6}Inbuilt libraries}{6}{subsubsection.3.0.6}
+\contentsline {subsubsection}{\numberline {3.0.7}Important third party libraries}{6}{subsubsection.3.0.7}

@@ -1,0 +1,210 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{hyperref}
+
+\title{Beginners Python Course}
+\author{Elliot Lynch}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\section{Introduction}
+
+Python is a general purpose interpretive language. Unlike C, python is not compiled but is instead executed at runtime. This gives python a great deal of flexibility at the expense of speed. Python is widely used in scientific computing, particularly as a much more user friendly interface to numerical solvers typically written in C/Fortran.
+
+I appologies in advance for the blatent anti-windows bias in this document. However if you do decide to base your operating system on something other than unix you deserve everything you get.
+
+\subsubsection{Strengths:}
+\begin{itemize}
+\item Interpreted, can run individual commands in consol - very easy to trial code segments.
+\item Alot of very good third party libaries, e.g. numpy, scipy,matplotlib. Many of these are written in C so are fast.
+\item Readability
+\item Comparitively recent language, so objects, lists and other features of a "Modern" Programming language haven't been tact on haphazardly.
+\item Well documented, far less inaccurate information than other languges (*C pointers*)
+\end{itemize}
+
+\subsubsection{Weaknesses:}
+\begin{itemize}
+\item Interpreted, signficantly slower than compiled languages
+\item Is very reliant on third party libaries to be truely useful
+\item Use of indentation for code blocks, aids readability but inconsitency can lead to portability issues.
+\item alot of changes between python 2 and 3 which are fairly incompatible.
+\end{itemize}
+
+\subsection{General Things to Note:}
+
+Python is an interpreted language and does not need to be compiled before use. This means that python can be run in a terminal or other programming enviroment (e.g. ipython), and commands can be executed line by line in a mannor similar to Matlab. Like Matlab python scripts are not compiled, rather python reads each line in turn and executes it. This has the great advantage that new code can be prototyped, written and run in much less time than for a compiled language. Also python makes a great scripting language and can be used to quickly open and modify large files without having to write and execute a program. However an interpreted code comes at a cost, and is much slower than compiled codes. 
+
+The fact that python executes each line in turn is a significant aid to debugging as when your code inevitably crashes it typically exits on the line which caused the crash. Python also deals with all the memory allocation in the code so memory leaks don't (read shouldn't, you can probably do it if you're sufficiently determined) happen in python.
+
+Python uses indentation to denote code blocks in a mannor similar to how C makes use of curly braces \{ \}. This is a great aid to the readability of the code as it forces code to be properly indented and avoids the clutter of have \{, \} or words such as \verb do \, and \verb done \, littered throughout the code. However it does have one major issue in that it is very inconsistent, with any number of whitespace caracters (tab space etc) usable for indentation. I has unfortunately become not uncommon for programmers on backwards operating systems (i.e. windows) to use tabs for indentation. This is very bad practice and completely ruins the portability of the code, as tab is not consitently defined between operating systems and will normally get converted to an incosistent number of whitespace caracters if the code is run on linux/mac.
+
+\subsection{The Golden Rule!}
+
+The Golden Rule of Python is to do as little computational work in python as possible by making use of third party libaries.
+
+Particularly For loops are a bad idea! Alot of code that you can write with for loops can also be done using third party libaries. In many cases all the third party libary will do is execute exactly the same loop code (baring possible optimisation) as you would have done. However the major third party libaries are written in C so the code will execute much faster.
+
+\section{Syntax and Language}
+
+The following is a referance to pythons language and Syntax. Python is actually well documented and has a central documentation here \url{https://docs.python.org/3/}. And of course stack overflow is your eternal saviour. It's important to note that python has changed significantly between version 2 and 3 and in a way that basically breaks everything between the versions. Python 3 is anoyingly more restrictive than 2 but it is more consitent. This section is not meant to be exhastive, that's what the main documentation is for, but to contain enough to get started. 
+
+I have also decided to keep more advanced commands such as try/except and classes seperate from this section
+
+\subsection{General Syntax}
+
+\subsection{Basic Language Referance}
+
+\subsubsection{Comments}
+\begin{verbatim}
+# this is a comment in python
+
+'''
+This is a multiline comment in python
+it can also be used to define multiline
+string and is quite good for doumentation
+'''
+
+\end{verbatim}
+
+\subsection{Print Statement}
+\begin{verbatim}
+
+a_variable = "to be printed"
+
+# python 2 print syntax
+print a_variable
+
+#python 3 print syntax
+print(a_variable)
+
+# all types in python can be printed,
+# however what python actually prints
+# is very type dependent.
+
+\end{verbatim}
+
+\subsubsection{Loops}
+\begin{verbatim}
+#for loop
+
+For i in [1,2,3]:
+  print i 
+
+# while loop
+while true:
+  print 1
+\end{verbatim}
+
+\subsubsection{Functions}
+\begin{verbatim}
+# define a function
+
+def foo(a,b):
+ # note the indent
+ # I also do not need to tell python what
+ # type the function takes/returns as this
+ # is determined at runtime
+  return a + b 
+  
+\end{verbatim}
+
+\subsubsection{Import statement}
+\begin{verbatim}
+#the import statement for importing libaries/functions
+
+# imports the whole library
+# call members of the libary by prefixing with the name
+# of the libary e.g.
+# numpy.foo()
+
+import numpy
+
+# imports the whole library but changes the prefix to np
+# so a member of the libary can be called by:
+# np.foo()
+ 
+import numpy as np
+
+# import a single member of the libary
+
+from numpy import foo
+
+# this can no be called using:
+# foo()
+
+# note these are used to import your own libraries
+# so the command:
+
+import mylibrary
+
+# will look for mylibrary.py in the local directory and 
+# run this, thus enabling all the functions/varaibles
+# in mylibrary.py to be used
+
+\end{verbatim}
+
+\subsubsection{Basic Data Types}
+\begin{verbatim}
+
+\end{verbatim}
+
+\subsubsection{File I/O}
+\begin{verbatim}
+
+# to open a file for reading in the local directory
+# called read.txt
+
+f = open("read.txt","r")
+
+# read a line
+line = f.readline()
+
+# read entire file
+data = f.read()
+
+# open file for writing
+
+g = open("write.txt","w")
+
+# write to file
+g.write(data)
+
+# add a new line
+g.write("a new line\n")
+
+# you should close files when they are do
+# as python doesn't have a compiler to tell
+# it when they are no loner in use
+f.close()
+g.close()
+
+\end{verbatim}
+
+
+
+\section{Third Party Libraries}
+
+The key to good python code is the use of libraries. Most things that you want to do in python have already been implimented in a library and are normally much faster than the equivilent code in python.
+
+\subsubsection{Inbuilt libraries}
+\begin{itemize}
+\item math : basic maths library containing definitions of pi, sin etc. It's rare for this to actually be useful as all of it is defined in numpy
+\item os : extensive library for interacting with the operating system, e.g. open/writing to files, looping over files in a directory etc.
+\item sys : for interacting with the system enviroment and for passing your code command line arguments. This is actually part of the os library but, unless you are dealing with file paths, is probably all you need.
+\end{itemize}
+
+\subsubsection{Important third party libraries}
+\begin{itemize}
+\item numpy : the main numerical libary in python. Contains the definitions for arrays, matrices complex numbers and many basic mathematical functions/operations. Also includes good support for reading from/writing to deliminated files
+\item scipy : an extensive library for scientific computations. Includes functions for statistics, ode solvers, least squares inversion/curve fitting and many special functions.
+\item matplotlib : the main plotting library for python. heavily influenced Matlab plots.
+\item pylab : a cut down version of matplotlib for when you want to plot the data but don't really need that much control over the presentation. (I use it alot as I am lazy).
+\end{itemize}
+
+\end{document}
