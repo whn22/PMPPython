@@ -89,6 +89,24 @@ print(a_variable)
 
 \end{verbatim}
 
+\subsubsection{If statement}
+\begin{verbatim}
+
+# if statement for python, here bool
+# is a boolean variable or an integer
+# 1 or 0. The brackets are entirely optional
+
+if (bool):
+  print "true"
+
+# also can use logical conditionals
+
+if (a == b):
+  print "true"
+
+\end{verbatim}
+
+
 \subsubsection{Loops}
 \begin{verbatim}
 #for loop
@@ -152,6 +170,34 @@ import mylibrary
 \subsubsection{Basic Data Types}
 \begin{verbatim}
 
+# The type of a python variable is determined at runtime
+# based on what is assigned to it.
+
+# declare a string
+var = "a string"
+
+# floating point number
+var = 1.0
+
+#integer
+var = 1
+
+# warning it is a common mistake in python to do
+# the following:
+
+var = 1/2
+
+# this is not 1/2! As 1 and 2 are integers, integer division is
+# preformed, the value of var is 0
+# to assign a value of a half floats must be used:
+
+var = 1.0/2.0
+
+# a list, this is similar to an array, except that it is extendable
+# i.e. is not of a fixed length
+
+var = [1,2,3]
+
 \end{verbatim}
 
 \subsubsection{File I/O}
@@ -186,7 +232,71 @@ g.close()
 
 \end{verbatim}
 
+\subsection{Boolean Logic and Comparison Operators}
 
+Python Boolean Logic and Comparisons are the same as C.
+
+\begin{center}
+\begin{tabular}{l l}
+a $==$ b & a equals b \\ 
+a $!=$ b & a not equal to b \\
+a $<$ b & a less than b \\
+a $>$ b & a greater than b \\
+a $<=$ b & a less than or equal to \\
+a $>=$ b & a greater than or equal to \\
+not a & boolean not operator \\
+a and b & boolean and operator \\
+a or b & boolean or operator \\
+a is b & checks if a and b are the same object \\
+a is not b & checks if a and b are not the same object \\
+a in b & checks if a is a member of b, e.g. if it is an element in
+a list \\
+a not in b & checks if a is not a member of b\\
+\end{tabular}
+\end{center}
+
+
+\subsection{Arithmatic}
+
+Native python has both integer and floating point arithmatic built in. It also has sequence arithmatic which is used for concatinating strings and certain array like structures such as lists. Python has an operator precedence which is the normal brackets,power,multiplication,addition ordering.
+
+\subsubsection{Integer Arithmatic}
+\begin{center}
+\begin{tabular}{l l}
+a $+$ b & adds two integers \\
+a $-$ b & subtracts two integers \\
+a  $/$ b & integer division, a divided by b and neglects the remainder \\
+a $\%$ b & modulus, divides a by b and returns the remainder \\
+a $*$ b & multiplies two integers \\
+a $**$ b & raises a to the power of b \\
+\end{tabular}
+\end{center}
+
+\subsubsection{Floating Point Arithmatic}
+The operators for floating point arithmatic are the same as
+for integer arithmatic except that they operate on floats. The
+exceptions are:
+
+\subsubsection{Integer Arithmatic}
+\begin{center}
+\begin{tabular}{l l}
+a $/$ b & \parbox[t]{10cm}{floating point division, a divided by b including remainder} \\
+a $//$ b & \parbox[t]{10cm}{floor division, this acts like integer division and divided a by b neglecting the remainder} \\
+\end{tabular}
+\end{center}
+
+Python also has an increment operator similar to C's ``++". Preforming \verb a = a + b can be done using the \verb += assignment operator by: \verb a += b. All the above operators have similar assignment opertors. So $*=$,$**=$,$/=$ etc can be used to multiple/raise to the power/divide the existing value of the variable by a new value. 
+
+\subsubsection{Sequence Arithmatic}
+
+Python has arithmatic opertors which act on sequences. These are not the same as array operations! Native python does not have an array structure on which elementwise arithmatic can be preformed like Fortran or Matlab. Instead it has sequences such as lists \verb [1,2,3] and strings \verb "abc". Note that python treats strings as lists of caracters so \verb "abc" is treated similarly to \verb ["a","b","c"] (Although a string is not regarded as a list type).
+
+\begin{center}
+\begin{tabular}{l l}
+a + b & \parbox[t]{10cm}{concaternates a and b, with b following on from a. So [1,2] + [3] becomes [1,2,3]} \\
+a*n & \parbox[t]{10cm}{Where a is a sequence and n an integer. Concaternates n copies of a into a single sequence. so [1,2]*2 becomes [1,2,1,2]} \\ 
+\end{tabular}
+\end{center}
 
 \section{Third Party Libraries}
 
@@ -205,6 +315,17 @@ The key to good python code is the use of libraries. Most things that you want t
 \item scipy : an extensive library for scientific computations. Includes functions for statistics, ode solvers, least squares inversion/curve fitting and many special functions.
 \item matplotlib : the main plotting library for python. heavily influenced Matlab plots.
 \item pylab : a cut down version of matplotlib for when you want to plot the data but don't really need that much control over the presentation. (I use it alot as I am lazy).
+\item PyQt and PyGTK : for when you have to write a GUI
 \end{itemize}
+
+
+
+\section{Sequences (Array Structures) in Python} \label{sequences}
+
+
+
+\section{Numpy}
+
+I have devoted an entire section on numpy due to it's utility. Correct use of numpy will make most of what was covered in Section \ref{sequences} obsolete.
 
 \end{document}

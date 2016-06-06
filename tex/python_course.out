@@ -8,11 +8,20 @@
 \BOOKMARK [2][-]{subsection.2.2}{Basic Language Referance}{section.2}% 8
 \BOOKMARK [3][-]{subsubsection.2.2.1}{Comments}{subsection.2.2}% 9
 \BOOKMARK [2][-]{subsection.2.3}{Print Statement}{section.2}% 10
-\BOOKMARK [3][-]{subsubsection.2.3.1}{Loops}{subsection.2.3}% 11
-\BOOKMARK [3][-]{subsubsection.2.3.2}{Functions}{subsection.2.3}% 12
-\BOOKMARK [3][-]{subsubsection.2.3.3}{Import statement}{subsection.2.3}% 13
-\BOOKMARK [3][-]{subsubsection.2.3.4}{Basic Data Types}{subsection.2.3}% 14
-\BOOKMARK [3][-]{subsubsection.2.3.5}{File I/O}{subsection.2.3}% 15
-\BOOKMARK [1][-]{section.3}{Third Party Libraries}{}% 16
-\BOOKMARK [2][-]{subsubsection.3.0.6}{Inbuilt libraries}{section.3}% 17
-\BOOKMARK [3][-]{subsubsection.3.0.7}{Important third party libraries}{subsubsection.3.0.6}% 18
+\BOOKMARK [3][-]{subsubsection.2.3.1}{If statement}{subsection.2.3}% 11
+\BOOKMARK [3][-]{subsubsection.2.3.2}{Loops}{subsection.2.3}% 12
+\BOOKMARK [3][-]{subsubsection.2.3.3}{Functions}{subsection.2.3}% 13
+\BOOKMARK [3][-]{subsubsection.2.3.4}{Import statement}{subsection.2.3}% 14
+\BOOKMARK [3][-]{subsubsection.2.3.5}{Basic Data Types}{subsection.2.3}% 15
+\BOOKMARK [3][-]{subsubsection.2.3.6}{File I/O}{subsection.2.3}% 16
+\BOOKMARK [2][-]{subsection.2.4}{Boolean Logic and Comparison Operators}{section.2}% 17
+\BOOKMARK [2][-]{subsection.2.5}{Arithmatic}{section.2}% 18
+\BOOKMARK [3][-]{subsubsection.2.5.1}{Integer Arithmatic}{subsection.2.5}% 19
+\BOOKMARK [3][-]{subsubsection.2.5.2}{Floating Point Arithmatic}{subsection.2.5}% 20
+\BOOKMARK [3][-]{subsubsection.2.5.3}{Integer Arithmatic}{subsection.2.5}% 21
+\BOOKMARK [3][-]{subsubsection.2.5.4}{Sequence Arithmatic}{subsection.2.5}% 22
+\BOOKMARK [1][-]{section.3}{Third Party Libraries}{}% 23
+\BOOKMARK [2][-]{subsubsection.3.0.5}{Inbuilt libraries}{section.3}% 24
+\BOOKMARK [3][-]{subsubsection.3.0.6}{Important third party libraries}{subsubsection.3.0.5}% 25
+\BOOKMARK [1][-]{section.4}{Sequences \(Array Structures\) in Python}{}% 26
+\BOOKMARK [1][-]{section.5}{Numpy}{}% 27
