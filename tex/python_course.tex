@@ -17,7 +17,7 @@
 
 Python is a general purpose interpretive language. Unlike C, python is not compiled but is instead executed at runtime. This gives python a great deal of flexibility at the expense of speed. Python is widely used in scientific computing, particularly as a much more user friendly interface to numerical solvers typically written in C/Fortran.
 
-I appologies in advance for the blatent anti-windows bias in this document. However if you do decide to base your operating system on something other than unix you deserve everything you get.
+I appologies in advance for any anti-windows bias in this document. However if you do decide to base your operating system on something other than unix you deserve everything you get.
 
 \subsubsection{Strengths:}
 \begin{itemize}
@@ -58,7 +58,211 @@ I have also decided to keep more advanced commands such as try/except and classe
 
 \subsection{General Syntax}
 
-\subsection{Basic Language Referance}
+Python does not have a line terminating caracter, instead using newline to terminate each line of code (more accurately the line terminating caracter is \\n the newline caracter). To indicate code blocks upon which loops,if statements etc act python uses whitespace caracters (stick to useing a consistent number of spaces! Never use tabs.) When you come to the end of the code in the loop,function definition etc this is indicated by returning to the original indentation:
+
+\begin{verbatim}
+for i in [1,2,3]: #note colon to end for loop line
+  # this is in the for loop
+  print i*2
+
+#this isn't
+print 2
+\end{verbatim}
+
+The line preceding indented code blocks are terminated by a colon e.g.,
+
+\begin{verbatim}
+
+for i in [1,2,3]:
+
+if (a==b):
+
+def foo():
+
+\end{verbatim}
+
+In python you do not need to delcare the type of a variable. This is determind at runtime when you assign to the variable. Python also has no restrictions on type when assigning to an existing variable. So it is possible to assign a string to a variable which is currently a float, this behaves exactly as if the variable was being declared for the first time.
+
+\subsection{Boolean Logic and Comparison Operators}
+
+Python Boolean Logic and Comparisons are the same as C.
+
+\begin{center}
+\begin{tabular}{l l}
+a $==$ b & a equals b \\ 
+a $!=$ b & a not equal to b \\
+a $<$ b & a less than b \\
+a $>$ b & a greater than b \\
+a $<=$ b & a less than or equal to \\
+a $>=$ b & a greater than or equal to \\
+not a & boolean not operator \\
+a and b & boolean and operator \\
+a or b & boolean or operator \\
+a is b & checks if a and b are the same object \\
+a is not b & checks if a and b are not the same object \\
+a in b & checks if a is a member of b, e.g. if it is an element in
+a list \\
+a not in b & checks if a is not a member of b\\
+\end{tabular}
+\end{center}
+
+
+\subsection{Arithmatic}
+
+Native python has both integer and floating point arithmatic built in. It also has sequence arithmatic which is used for concatinating strings and certain array like structures such as lists. Python has an operator precedence which is the normal brackets,power,multiplication,addition ordering.
+
+\subsubsection{Integer Arithmatic}
+\begin{center}
+\begin{tabular}{l l}
+a $+$ b & adds two integers \\
+a $-$ b & subtracts two integers \\
+a  $/$ b & integer division, a divided by b and neglects the remainder \\
+a $\%$ b & modulus, divides a by b and returns the remainder \\
+a $*$ b & multiplies two integers \\
+a $**$ b & raises a to the power of b \\
+\end{tabular}
+\end{center}
+
+\subsubsection{Floating Point Arithmatic}
+The operators for floating point arithmatic are the same as
+for integer arithmatic except that they operate on floats. The
+exceptions are:
+
+\subsubsection{Integer Arithmatic}
+\begin{center}
+\begin{tabular}{l l}
+a $/$ b & \parbox[t]{10cm}{floating point division, a divided by b including remainder} \\
+a $//$ b & \parbox[t]{10cm}{floor division, this acts like integer division and divided a by b neglecting the remainder} \\
+\end{tabular}
+\end{center}
+
+Python also has an increment operator similar to C's \verb"++". Preforming \verb|a = a + b| can be done using the \verb|+=|  assignment operator by: \verb|a += b|. All the above operators have similar assignment opertors. So \verb|*=|, \verb|**=|, \verb|/=| etc can be used to multiple/raise to the power/divide the existing value of the variable by a new value. 
+
+\subsubsection{Sequence Arithmatic}
+
+Python has arithmatic opertors which act on sequences. These are not the same as array operations! Native python does not have an array structure on which elementwise arithmatic can be preformed like Fortran or Matlab. Instead it has sequences such as lists \verb [1,2,3] and strings \verb "abc". Note that python treats strings as lists of caracters so \verb "abc" is treated similarly to \verb ["a","b","c"] (Although a string is not regarded as a list type).
+
+\begin{center}
+\begin{tabular}{l l}
+a + b & \parbox[t]{10cm}{concaternates a and b, with b following on from a. So [1,2] + [3] becomes [1,2,3]} \\
+a*n & \parbox[t]{10cm}{Where a is a sequence and n an integer. Concaternates n copies of a into a single sequence. so [1,2]*2 becomes [1,2,1,2]} \\ 
+\end{tabular}
+\end{center}
+
+\section{Third Party Libraries}
+
+The key to good python code is the use of libraries. Most things that you want to do in python have already been implimented in a library and are normally much faster than the equivilent code in python.
+
+\subsubsection{Inbuilt libraries}
+\begin{itemize}
+\item math : basic maths library containing definitions of pi, sin etc. It's rare for this to actually be useful as all of it is defined in numpy
+\item os : extensive library for interacting with the operating system, e.g. open/writing to files, looping over files in a directory etc.
+\item sys : for interacting with the system enviroment and for passing your code command line arguments. This is actually part of the os library but, unless you are dealing with file paths, is probably all you need.
+\end{itemize}
+
+\subsubsection{Important third party libraries}
+\begin{itemize}
+\item numpy : the main numerical libary in python. Contains the definitions for arrays, matrices complex numbers and many basic mathematical functions/operations. Also includes good support for reading from/writing to deliminated files
+\item scipy : an extensive library for scientific computations. Includes functions for statistics, ode solvers, least squares inversion/curve fitting and many special functions.
+\item matplotlib : the main plotting library for python. heavily influenced Matlab plots.
+\item pylab : a cut down version of matplotlib for when you want to plot the data but don't really need that much control over the presentation. (I use it alot as I am lazy).
+\item PyQt and PyGTK : for when you have to write a GUI
+\end{itemize}
+
+\section{Sequences (Array Structures) in Python} \label{sequences}
+
+Python has a variety of array like structures, some of which have been mentioned above. These are collectively refered to as sequences. It should be noted that there is no array type in native python. Sometimes people refer to sequences (particularly lists) as arrays, however sequences do not behave like arrays and this also confuses them with the actual implementation of arrays in numpy.
+
+As mentioned above sequences have there own arithmatic, which differes from array arithmatic. Sequences are numbered from 0 to n-1 in a similar manor to C arrays. Elements in a sequence can be accessed by:
+
+\begin{verbatim}
+sequence_variable = [1,2,3]
+
+element= sequence_variable[1]
+# element now has the value 2.
+\end{verbatim}
+
+Sequences accept negative indexes which count backwards, so for a sequence of lenght m \verb|sequence_variable[-n]| will give the \verb|m-n| th element. Sequences also admit slicing, where you specify a range of indices and obtain a new sequence with just these elements.
+
+\begin{verbatim}
+sequence_variable = [1,2,3,4,5]
+
+new_sequence= sequence_variable[1:3]
+# new_sequence is now [2,3,4]
+\end{verbatim} 
+
+There are three sequences in python, combined with several unordered data structures. I will not cover strings here, except to say that they are a sequence (in a similar way to how they are arrays in C) and many of the operations that can be done on sequences can be done on strings.
+
+The primary sequence in python is the list. Unlike arrays, list need not contain objects of the same type making \verb|["string",11]| a perfectly viable list. Also unlike arrays lists do not have a fixed lenght, and items can be freely appended to them and they can be concaternated. Items in list also have a notion of ordering, in that a list element knows about the elements either side of it.
+
+Lists are thus much more complicated and flexible structures than arrays, however they pay for this by being much slower and less memory efficient.
+
+Lists are never multidimensional, however as a list can contain any python type this can be acheived using nested lists. So a n by m array can be constructed from a list of n lists of length m. There is nothing requireing these lists to be the same length however. It should be noted that nested lists are inherently a bad idea and should be avoided if possible as they are very slow, normally there is a better way of coding something involving a nested list.
+
+The other type of sequence is the tuple. This is an imutable sequence, you declare it and cannot modify it afterwards. It is declared using round bracket \verb|()| in a similar manor to lists,
+
+\begin{verbatim}
+new_tuple = (1,2,"string for variety")
+
+# note for a tuple of one element:
+new_tuple = (1,)
+
+# not!
+
+new_tuple = (1)
+
+# as this is just paranthasis around an integer.
+
+\end{verbatim}
+
+You can access the elements of a tuple, add and multiply and slice them, but modifying the size of the tuple or the elements it contians is not possible. Tuples are much faster than lists, however in most situations (the exception being when you want to make use of nested tuples) it is better to use a numpy array when speed is your concern.
+
+\section{Numpy}
+
+I have devoted an entire section on numpy due to it's utility. Correct use of numpy is key to any numerical work in python.
+
+The main type in the Numpy library is the numpy array. This is the main implementation of arrays in python (there are others). These are true arrays in the sense that they are a fixed lenght sequence of variables of the same type. Numpy arrays can be multidimenstional and can be obtained from the equivilent multidimentional list by,
+
+\begin{verbatim}
+# we've imported numpy as np
+
+list_variable = [[1,2],[3,4]]
+
+array_variable=np.array(list_variable)
+
+\end{verbatim}
+
+Numpy arrays are indexed from zero. They accept slicing and each dimension can be sliced seperately so:
+
+\begin{verbatim}
+
+# second column of a numpy array:
+column=array_variable[:,1]
+
+\end{verbatim}
+
+Like there equivilent in Matlab and Fortran numpy array accept elementwise operations. All arithmatic operations preformed on a numpy are preformed element wise. Hence to multiply to sequences of numbers:
+
+\begin{verbatim}
+
+A = [1,2,3]
+B = [3,4,5]
+
+# with lists
+C=[]
+for i in range(len(A)):
+  C += [A[i]*B[i]]
+
+# with arrays
+C = np.array(A)*np.array(B)
+
+\end{verbatim}
+
+Appart from being slightly shorter the main advantage of doing this is speed. Given that ultimately the computer must loop over each element in turn regardless of how you code it, why should this be? The answer is that the loop in numpy is written in C and thus executes much faster than the equivilent loop written in python. Also numpy arrays are written more efficiently in memory than lists as they do not support nesting.
+
+\appendix
+
+\section{Basic Language Referance}
 
 \subsubsection{Comments}
 \begin{verbatim}
@@ -67,7 +271,7 @@ I have also decided to keep more advanced commands such as try/except and classe
 '''
 This is a multiline comment in python
 it can also be used to define multiline
-string and is quite good for doumentation
+string and is quite good for documentation
 '''
 
 \end{verbatim}
@@ -231,101 +435,5 @@ f.close()
 g.close()
 
 \end{verbatim}
-
-\subsection{Boolean Logic and Comparison Operators}
-
-Python Boolean Logic and Comparisons are the same as C.
-
-\begin{center}
-\begin{tabular}{l l}
-a $==$ b & a equals b \\ 
-a $!=$ b & a not equal to b \\
-a $<$ b & a less than b \\
-a $>$ b & a greater than b \\
-a $<=$ b & a less than or equal to \\
-a $>=$ b & a greater than or equal to \\
-not a & boolean not operator \\
-a and b & boolean and operator \\
-a or b & boolean or operator \\
-a is b & checks if a and b are the same object \\
-a is not b & checks if a and b are not the same object \\
-a in b & checks if a is a member of b, e.g. if it is an element in
-a list \\
-a not in b & checks if a is not a member of b\\
-\end{tabular}
-\end{center}
-
-
-\subsection{Arithmatic}
-
-Native python has both integer and floating point arithmatic built in. It also has sequence arithmatic which is used for concatinating strings and certain array like structures such as lists. Python has an operator precedence which is the normal brackets,power,multiplication,addition ordering.
-
-\subsubsection{Integer Arithmatic}
-\begin{center}
-\begin{tabular}{l l}
-a $+$ b & adds two integers \\
-a $-$ b & subtracts two integers \\
-a  $/$ b & integer division, a divided by b and neglects the remainder \\
-a $\%$ b & modulus, divides a by b and returns the remainder \\
-a $*$ b & multiplies two integers \\
-a $**$ b & raises a to the power of b \\
-\end{tabular}
-\end{center}
-
-\subsubsection{Floating Point Arithmatic}
-The operators for floating point arithmatic are the same as
-for integer arithmatic except that they operate on floats. The
-exceptions are:
-
-\subsubsection{Integer Arithmatic}
-\begin{center}
-\begin{tabular}{l l}
-a $/$ b & \parbox[t]{10cm}{floating point division, a divided by b including remainder} \\
-a $//$ b & \parbox[t]{10cm}{floor division, this acts like integer division and divided a by b neglecting the remainder} \\
-\end{tabular}
-\end{center}
-
-Python also has an increment operator similar to C's ``++". Preforming \verb a = a + b can be done using the \verb += assignment operator by: \verb a += b. All the above operators have similar assignment opertors. So $*=$,$**=$,$/=$ etc can be used to multiple/raise to the power/divide the existing value of the variable by a new value. 
-
-\subsubsection{Sequence Arithmatic}
-
-Python has arithmatic opertors which act on sequences. These are not the same as array operations! Native python does not have an array structure on which elementwise arithmatic can be preformed like Fortran or Matlab. Instead it has sequences such as lists \verb [1,2,3] and strings \verb "abc". Note that python treats strings as lists of caracters so \verb "abc" is treated similarly to \verb ["a","b","c"] (Although a string is not regarded as a list type).
-
-\begin{center}
-\begin{tabular}{l l}
-a + b & \parbox[t]{10cm}{concaternates a and b, with b following on from a. So [1,2] + [3] becomes [1,2,3]} \\
-a*n & \parbox[t]{10cm}{Where a is a sequence and n an integer. Concaternates n copies of a into a single sequence. so [1,2]*2 becomes [1,2,1,2]} \\ 
-\end{tabular}
-\end{center}
-
-\section{Third Party Libraries}
-
-The key to good python code is the use of libraries. Most things that you want to do in python have already been implimented in a library and are normally much faster than the equivilent code in python.
-
-\subsubsection{Inbuilt libraries}
-\begin{itemize}
-\item math : basic maths library containing definitions of pi, sin etc. It's rare for this to actually be useful as all of it is defined in numpy
-\item os : extensive library for interacting with the operating system, e.g. open/writing to files, looping over files in a directory etc.
-\item sys : for interacting with the system enviroment and for passing your code command line arguments. This is actually part of the os library but, unless you are dealing with file paths, is probably all you need.
-\end{itemize}
-
-\subsubsection{Important third party libraries}
-\begin{itemize}
-\item numpy : the main numerical libary in python. Contains the definitions for arrays, matrices complex numbers and many basic mathematical functions/operations. Also includes good support for reading from/writing to deliminated files
-\item scipy : an extensive library for scientific computations. Includes functions for statistics, ode solvers, least squares inversion/curve fitting and many special functions.
-\item matplotlib : the main plotting library for python. heavily influenced Matlab plots.
-\item pylab : a cut down version of matplotlib for when you want to plot the data but don't really need that much control over the presentation. (I use it alot as I am lazy).
-\item PyQt and PyGTK : for when you have to write a GUI
-\end{itemize}
-
-
-
-\section{Sequences (Array Structures) in Python} \label{sequences}
-
-
-
-\section{Numpy}
-
-I have devoted an entire section on numpy due to it's utility. Correct use of numpy will make most of what was covered in Section \ref{sequences} obsolete.
 
 \end{document}

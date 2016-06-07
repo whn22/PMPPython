@@ -26,13 +26,17 @@ for line in f:
  
   #ignore header
   if linecount==0:
+    header=line
     linecount+=1 
     continue #skips the remainder of the for loop for this line
 
   linelist=line.split(",") #split the line on comma
   #assign to data lists
-  altitude+=[float(linelist[0])] #need to convert to float!
-  energyperkm+=[float(linelist[1])]
+  altitude+=[float(linelist[1])] #need to convert to float!
+  energyperkm+=[float(linelist[0])]
+
+# close the file
+f.close()
 
 # we have the data to work with 
 # now lets define some functions
@@ -75,4 +79,14 @@ double_energy=integrates_elements(double_energyperkm,altitude)
 
 print "energy [kt]: " + str(double_energy)
 
+# write new energy to file.
 
+filestring=header
+
+#write each line as a string and append
+for i in range(len(altitude)):
+  filestring+=str(double_energyperkm[i])+","+str(altitude[i])+"\n"
+
+fout=open("new_meteor.csv","w")
+fout.write(filestring)
+fout.close()
