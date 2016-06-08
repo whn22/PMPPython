@@ -23,11 +23,10 @@ header=data.dtype.names
 altitude=data[header[1]]
 energyperkm=data[header[0]]
 
-
 # the functions we need are in various libraries
 
 # find the energy
-energy=simps(energyperkm,x=altitude) # the minus is just the direction of altitude
+energy=simps(energyperkm,x=altitude)
 
 print "energy [kt]: " + str(energy) # convert to string
 
@@ -40,8 +39,10 @@ print "energy [kt]: " + str(double_energy)
 
 
 # write new energy to file.
-data2=np.hstack((altitude,double_energyperkm))
+data2=np.column_stack((altitude,double_energyperkm))
+
 print data2
+
 header_string=",".join(list(header))
 np.savetxt("new_meteor_numpy.csv",data2,delimiter=",",header=header_string)
 
