@@ -250,8 +250,38 @@ a $<$ b & a is a proper subset of b \\
 a $>$ b & a is a proper superset of b \\
 a $<=$ b & a is a subset of b\\
 a $>=$ b & a is a superset of b \\
+a $|$ b & union of a with b\\
+a $-$ b & set difference between a and b\\
+a $\&$ b & intersection between a and b\\
+a \verb|^| b & symmetric diference between a and b\\
 \end{tabular}
 \end{center}
+
+It is also possible to preform \verb||=| and similar, along with adding and removing specific elements from the set.
+
+Another important data structure is the dictionary, which is related to the data structure often called a hash-map in other languages. This is an unordered collection of key,value pairs where the values stored in the dictionary are referanced by the keys. This is very useful for when you have a collection of properties associated with a label (e.g. a named person/particle/star etc), and enables you to retreive the data from the dictionary associated with this label without having to loop over and checking the elments as you would in a list. As the key acts as a pointer to the associated value (stored data), seaching dictionaries for the data associated with a specific key is very fast.
+
+\begin{verbatim}
+
+# implimentation of a dictionary
+dict_var = {}
+
+# add some key,value pairs
+dict_var["Betelgeuse"] =(90000.0,3300.0)
+dict_var["Agol_A"]=(182.0,13000.0)
+dict_var["CygnusX1"] =(100000.0,1.0e8,"compact object")
+
+# obtain data for Algol_A
+data = dict_var["Agol_A"]
+
+# same implimentation with list:
+list_var = [["Betelgeuse",(90000.0,3300.0)],["Agol_A",(182.0,13000.0)],["CygnusX1",(100000.0,1.0e8,"compact object")]]
+
+# would need to loop over with an if statement to extract data for a specific entry
+
+\end{verbatim}
+
+The keys in for the dictionary need not be strings, but can be any immutable object. In general this means strings,tuples and integers and specifically forbiding floats and lists as these risk being modified - thus no longer providing a one to one map to the stored data.
 
 \section{Numpy}
 
