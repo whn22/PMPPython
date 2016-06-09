@@ -93,8 +93,8 @@ a $==$ b & a equals b \\
 a $!=$ b & a not equal to b \\
 a $<$ b & a less than b \\
 a $>$ b & a greater than b \\
-a $<=$ b & a less than or equal to \\
-a $>=$ b & a greater than or equal to \\
+a $<=$ b & a less than or equal to b\\
+a $>=$ b & a greater than or equal to b\\
 not a & boolean not operator \\
 a and b & boolean and operator \\
 a or b & boolean or operator \\
@@ -234,6 +234,24 @@ lst1 = range(n)
 lst2 = [f(el1) for el1 in lst1]
 
 \end{verbatim}
+
+\subsection{Other Data Structures}
+
+Python has other non-sequence data structures, which have more specialised uses. These are mostly store unordered data. 
+
+Python has a set object built in, this is an unordered collection of unique elements. Set comparison operations are defined between sets, so the use of \verb|set1 < set2| returns \verb|True| if set1 is a proper subset of set2. The following is a referance to pythons set arithmatic:
+
+\subsubsection{Set Arithmatic}
+\begin{center}
+\begin{tabular}{l l}
+a $==$ b & set equallity between a and b \\ 
+a $!=$ b & set a and b are not equal\\
+a $<$ b & a is a proper subset of b \\
+a $>$ b & a is a proper superset of b \\
+a $<=$ b & a is a subset of b\\
+a $>=$ b & a is a superset of b \\
+\end{tabular}
+\end{center}
 
 \section{Numpy}
 
